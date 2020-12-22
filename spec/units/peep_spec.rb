@@ -11,4 +11,19 @@ describe Peep do
       expect(peep.peep).to eq 'Hello, cruel world'
     end
   end
+
+  describe '.all' do
+    it 'returns all the peeps' do
+      peep = Peep.create(peep: "Sleepless in seatle")
+      Peep.create(peep: 'Hello, cruel world')
+      Peep.create(peep: 'Goodbye, cruel world')
+      
+      peeps = Peep.all
+
+      expect(peeps.length).to eq 3
+      expect(peeps.first).to be_a Peep
+      expect(peeps.first.id).to eq peep.id
+      expect(peeps.first.peep).to eq 'Sleepless in seatle'
+    end
+  end
 end
