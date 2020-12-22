@@ -13,6 +13,7 @@ class Peep
       connection = PG.connect(dbname: 'chitter_app_manager')
     end
     
+    # only accepts strings with no apostrophes
     result = connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep")
     Peep.new(id: result[0]['id'], peep: result[0]['peep'])
   end
