@@ -8,6 +8,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 require 'capybara/rspec'
-require File.join(File.dirname(__FILE__), '..', 'lib', 'controllers', 'app_controller.rb')
+require File.join(File.dirname(__FILE__), '..', 'app', 'app.rb')
 
 Capybara.app = Chitter
