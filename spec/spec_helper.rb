@@ -7,7 +7,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
+ENV['ENVIRONMENT'] = 'test'
+
 require 'capybara/rspec'
+require 'pg'
 require File.join(File.dirname(__FILE__), '..', 'app', 'app.rb')
 
 Capybara.app = Chitter

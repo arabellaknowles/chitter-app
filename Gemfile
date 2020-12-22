@@ -12,4 +12,8 @@ group :test do
   gem 'capybara'
 end
 
-gem 'sinatra'
+group :development do
+  gem 'pg'
+  gem 'sinatra'
+  gem 'sinatra-flash'
+end
