@@ -11,7 +11,7 @@ class User
 
   def self.create(username:, email:, full_name:, password:)
     connect_to_database
-    result = @connection.exec("INSERT INTO users (username, email, full_name, password) VALUES('#{username}', '#{email}', '#{full_name}', '#{password}') RETURNING id, username, email, full_name, password")
+    result = @connection.exec("INSERT INTO users (username, email, full_name, password) VALUES('#{username}', '#{email}', '#{full_name}', '#{password_encryption(password)}') RETURNING id, username, email, full_name, password")
     User.new(
       id: result[0]['id'],
       username: result[0]['username'], 
@@ -22,6 +22,10 @@ class User
   end 
 
   private
+
+  def self.password_encryption(password)
+    BCrypt::Password.create(password)
+  end
 
   def self.connect_to_database
     if ENV['ENVIRONMENT'] == 'test'
