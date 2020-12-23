@@ -4,4 +4,12 @@ feature 'viewing peeps' do
     visit('/')
     expect(page).to have_content('Pretty nice weather IMO')
   end
+
+  scenario 'user can view what time each peep was made' do
+    @time_now = Time.now.strftime("%k:%M")
+    allow(Peep).to receive(:current_time).and_return(@time_now)    
+    Peep.create(peep: 'Pretty nice weather IMO')
+    visit('/')
+    expect(page).to have_content(@time_now)
+  end
 end

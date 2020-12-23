@@ -1,0 +1,2 @@
+ALTER TABLE peeps
+ADD COLUMN created_at VARCHAR(6);
