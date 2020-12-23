@@ -10,12 +10,7 @@ class User
   end
 
   def self.create(username:, email:, full_name:, password:)
-    if ENV['ENVIRONMENT'] == 'test'
-      @connection = PG.connect(dbname: 'chitter_users_test')
-    else
-      @connection = PG.connect(dbname: 'chitter_users')
-    end
-
+    connect_to_database
     result = @connection.exec("INSERT INTO users (username, email, full_name, password) VALUES('#{username}', '#{email}', '#{full_name}', '#{password}') RETURNING id, username, email, full_name, password")
     User.new(
       id: result[0]['id'],
@@ -25,4 +20,14 @@ class User
       password: result[0]['password']
     )
   end 
+
+  private
+
+  def self.connect_to_database
+    if ENV['ENVIRONMENT'] == 'test'
+      @connection = PG.connect(dbname: 'chitter_users_test')
+    else
+      @connection = PG.connect(dbname: 'chitter_users')
+    end
+  end
 end
