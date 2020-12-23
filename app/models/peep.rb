@@ -12,7 +12,7 @@ class Peep
     else
       connection = PG.connect(dbname: 'chitter_app_manager')
     end
-    
+
     # only accepts strings with no apostrophes
     result = connection.exec("INSERT INTO peeps (peep) VALUES('#{peep}') RETURNING id, peep")
     Peep.new(id: result[0]['id'], peep: result[0]['peep'])
@@ -26,8 +26,9 @@ class Peep
     end
 
     result = connection.exec("SELECT * FROM peeps")
-    result.map do |peep|
+    new_result = result.map do |peep|
       Peep.new(id: peep['id'], peep: peep['peep'])
     end
+    new_result.reverse
   end
 end
