@@ -16,4 +16,5 @@ group :development do
   gem 'pg'
   gem 'sinatra'
   gem 'sinatra-flash'
+  gem 'bcrypt'
 end
