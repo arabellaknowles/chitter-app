@@ -4,6 +4,9 @@
 <form method='get' action='registrations/new'>
   <input type='submit' value='Sign up'>
 </form>
+<form method='get' action='sessions/new'>
+  <input type='submit' value='Sign in'>
+</form>
 
 <% if session[:current_user_id] %>
   <form method='post' action='/peeps'>
