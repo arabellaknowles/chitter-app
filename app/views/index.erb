@@ -5,11 +5,13 @@
   <input type='submit' value='Sign up'>
 </form>
 
-<form method='post' action='/peeps'>
-  <label>Make a peep:</label>
-  <input name='peep_text' type='text' placeholder='250 characters max'>
-  <input type='submit' value='Post'>
-</form>
+<% if session[:current_user_id] %>
+  <form method='post' action='/peeps'>
+    <label>Make a peep:</label>
+    <input name='peep_text' type='text' placeholder='250 characters max'>
+    <input type='submit' value='Post'>
+  </form>
+<% end %>
 
 <ul>
   <% @peeps.each do |peep| %>
