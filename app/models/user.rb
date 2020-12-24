@@ -1,5 +1,6 @@
 class User
-  attr_reader :id, :username, :email, :full_name
+  attr_reader :id, :username, :email, :full_name, :password
+  include BCrypt
 
   def initialize(id:, username:, email:, full_name:, password:)
     @id = id
@@ -11,7 +12,8 @@ class User
 
   def self.create(username:, email:, full_name:, password:)
     connect_to_database
-    result = @connection.exec("INSERT INTO users (username, email, full_name, password) VALUES('#{username}', '#{email}', '#{full_name}', '#{password_encryption(password)}') RETURNING id, username, email, full_name, password")
+    hash_password = password_encryption(password)
+    result = @connection.exec("INSERT INTO users (username, email, full_name, password) VALUES('#{username}', '#{email}', '#{full_name}', '#{hash_password}') RETURNING id, username, email, full_name, password")
     User.new(
       id: result[0]['id'],
       username: result[0]['username'], 
@@ -21,10 +23,17 @@ class User
     )
   end 
 
+  def self.authenticate(username:, password:)
+    connect_to_database
+    user = @connection.exec("SELECT * FROM users WHERE username='#{username}'")
+    db_password = Password.new(user.first['password'])
+    user && (db_password == password) ? user.first : false
+  end
+
   private
 
   def self.password_encryption(password)
-    BCrypt::Password.create(password)
+    hash_password = Password.create(password)
   end
 
   def self.connect_to_database
