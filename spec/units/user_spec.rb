@@ -38,31 +38,31 @@ describe User do
   end
 
   describe '.email_in_use?' do
-    it 'checks if unique email is already in the database' do
+    it 'returns false if unique email is used for sign up' do
       expect(User.email_in_use?('RubyLover@gmail.com')).to eq(false)
     end
     
-    it 'checks if non-unique email is already in the database' do
+    it 'returns true if non-unique email is used for sign up' do
       expect(User.email_in_use?('JSLover@gmail.com')).to eq(true)
     end
   end
 
   describe '.username_in_use?' do
-    it 'checks if username is already in the database' do
+    it 'returns false if unique username is used for sign up' do
       expect(User.username_in_use?('RubyFanGal')).to eq(false)
     end
 
-    it 'checks if non-unique username is already in the database' do
+    it 'returns true if non-unique username is used for sign up' do
       expect(User.username_in_use?('javascriptFanGirl')).to eq(true)
     end
   end
 
   describe '.username_and_email_in_use?' do
-    it 'checks if unique username and email are already in the database' do
+    it 'returns false if unique username and email are used for sign up' do
       expect(User.username_and_email_in_use?(username: 'RubyFanGal', email: 'rubyGal@gmail.com')).to eq(false)
     end
 
-    it 'checks if non-unique username and email are already in the database' do
+    it 'returns true if non-unique username and email are used for sign up' do
       expect(User.username_and_email_in_use?(username: 'javascriptFanGirl', email: 'JSLover@gmail.com')).to eq(true)
     end
   end
