@@ -36,14 +36,12 @@ class User
 
   def self.email_in_use?(email)
     connect_to_database
-    user = find_by_email(email: email)
-    user_found?(user)
+    find_by_email(email: email)
   end
 
   def self.username_in_use?(username)
     connect_to_database
-    user = find_by_username(username: username)
-    user_found?(user)
+    find_by_username(username: username)
   end
 
   def self.username_and_email_in_use?(username:, email:)
@@ -65,14 +63,10 @@ class User
   end
 
   def self.find_by_username(username:)
-    @connection.exec("SELECT * FROM users WHERE username='#{username}'")
+    !!(@connection.exec("SELECT * FROM users WHERE username='#{username}'").first)
   end
 
   def self.find_by_email(email:)
-    @connection.exec("SELECT * FROM users WHERE email='#{email}'")
-  end
-
-  def self.user_found?(user)
-    user.first ? true : false
+    !!(@connection.exec("SELECT * FROM users WHERE email='#{email}'").first)
   end
 end
