@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
       flash[:notice] = "Welcome, #{current_user['full_name'].split(' ').first}"
       redirect('/')
     else
-      flash[:notice] = "Sign in failed, please try again"
+      flash[:notice] = 'Sign in failed, please try again'
       redirect('/sessions/new')
     end
   end

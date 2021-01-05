@@ -7,6 +7,7 @@ describe User do
       password: 'ILoveDogs'
     )
   end
+  
   describe '.create' do
     it 'creates a new user' do
       connection = PG.connect(dbname: 'chitter_users_test')
