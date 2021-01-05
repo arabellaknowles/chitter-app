@@ -66,4 +66,10 @@ describe User do
       expect(User.username_and_email_in_use?(username: 'javascriptFanGirl', email: 'JSLover@gmail.com')).to eq(true)
     end
   end
+
+  describe '.find_by_id' do
+    it 'retrieves a user from the db given the id' do
+      expect(User.find_by_id(@user.id)).to eq({"email"=>"JSLover@gmail.com", "full_name"=>"Jane Doe", "id"=>"#{@user.id}", "password"=>"#{@user.password}", "username"=>"javascriptFanGirl"})
+    end
+  end
 end

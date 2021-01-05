@@ -23,6 +23,11 @@ class User
     )
   end 
 
+  def self.find_by_id(id)
+    connect_to_database
+    @connection.exec("SELECT * FROM users WHERE id='#{id}'").first
+  end
+
   def self.authenticate(username:, password:)
     connect_to_database
     user = find_by_username(username: username)

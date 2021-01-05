@@ -25,6 +25,7 @@
     <li>
       <%= peep.peep %>
       <%= peep.created_at%>
+      <%= User.find_by_id(peep.user_id)['full_name'] %>
     </li>
   <% end %>
 </ul>

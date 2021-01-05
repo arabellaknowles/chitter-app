@@ -1,6 +1,6 @@
 feature 'viewing peeps' do
   scenario 'user visits homepage and sees peeps' do
-    Peep.create(peep: 'Pretty nice weather IMO')
+    Peep.create(peep: 'Pretty nice weather IMO', user_id: 1)
     visit('/')
     expect(page).to have_content('Pretty nice weather IMO')
   end
@@ -10,11 +10,25 @@ feature 'viewing peeps' do
     expect(page).to_not have_content('Make a peep:')
   end
 
-  scenario 'user can view what time each peep was made' do
-    @time_now = Time.now.strftime("%k:%M")
-    allow(Peep).to receive(:current_time).and_return(@time_now)    
-    Peep.create(peep: 'Pretty nice weather IMO')
-    visit('/')
-    expect(page).to have_content(@time_now)
+  context 'Peep created before tests' do
+    before do 
+      User.create(
+        username: 'javascriptFanGirl',
+        email: 'JSLover@gmail.com',
+        full_name: 'Jane Doe',
+        password: 'ILoveDogs'
+      )
+      allow(Peep).to receive(:current_time).and_return("17:24")  
+      Peep.create(peep: 'Pretty nice weather IMO', user_id: 1)
+      visit('/')
+    end
+
+    scenario 'user can view what time each peep was made' do
+      expect(page).to have_content("17:24")
+    end
+
+    scenario 'user can see who posted which peep' do
+      expect(page).to have_content('Jane Doe')
+    end
   end
 end
