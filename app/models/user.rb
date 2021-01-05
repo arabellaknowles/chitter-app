@@ -41,6 +41,12 @@ class User
     user.first ? true : false
   end
 
+  def self.username_in_use?(username)
+    connect_to_database
+    user = @connection.exec("SELECT * FROM users WHERE username='#{username}'")
+    user.first ? true : false
+  end
+
   private
 
   def self.password_encryption(password)
