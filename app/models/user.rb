@@ -1,6 +1,7 @@
 class User
   attr_reader :id, :username, :email, :full_name, :password
   include BCrypt
+  VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   def initialize(id:, username:, email:, full_name:, password:)
     @id = id
@@ -28,6 +29,10 @@ class User
     user = @connection.exec("SELECT * FROM users WHERE username='#{username}'")
     db_password = Password.new(user.first['password'])
     user && (db_password == password) ? user.first : false
+  end
+
+  def self.valid_email?(email)
+    ((email =~ VALID_EMAIL_REGEX) == 0) ? true : false
   end
 
   private

@@ -28,4 +28,12 @@ describe User do
       expect(authentication).to eq({"email"=>"JSLover@gmail.com", "full_name"=>"Jane Doe", "id"=>"#{@user.id}", "password"=>"#{@user.password}", "username"=>"javascriptFanGirl"})
     end
   end
+
+  describe '.valid_email?' do
+    it 'checks the email is valid' do
+      expect(User.valid_email?('JSLover@gmail.com')).to eq(true)
+      expect(User.valid_email?('JSLover@gmailcom')).to eq(false)
+      expect(User.valid_email?('JSLovergmail.com')).to eq(false)
+    end
+  end
 end
