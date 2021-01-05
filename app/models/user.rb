@@ -31,8 +31,12 @@ class User
   def self.authenticate(username:, password:)
     connect_to_database
     user = find_by_username(username: username)
-    db_password = Password.new(user['password'])
-    user && (db_password == password) ? user : false
+    if user
+      db_password = Password.new(user['password'])
+      user && (db_password == password) ? user : false
+    else
+      return false
+    end
   end
 
   def self.invalid_email?(email)
