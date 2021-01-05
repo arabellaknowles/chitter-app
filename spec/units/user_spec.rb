@@ -56,4 +56,14 @@ describe User do
       expect(User.username_in_use?('javascriptFanGirl')).to eq(true)
     end
   end
+
+  describe '.username_and_email_in_use?' do
+    it 'checks if unique username and email are already in the database' do
+      expect(User.username_and_email_in_use?(username: 'RubyFanGal', email: 'rubyGal@gmail.com')).to eq(false)
+    end
+
+    it 'checks if non-unique username and email are already in the database' do
+      expect(User.username_and_email_in_use?(username: 'javascriptFanGirl', email: 'JSLover@gmail.com')).to eq(true)
+    end
+  end
 end

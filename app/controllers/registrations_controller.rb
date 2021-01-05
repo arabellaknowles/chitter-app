@@ -4,7 +4,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/registrations' do
-    if User.invalid_email?(params[:email]) 
+    if User.username_and_email_in_use?(username: params[:username], email: params[:email])
+      flash[:notice] = 'Username and email already in use, please use another one'
+      redirect('/registrations/new')
+    elsif User.invalid_email?(params[:email]) 
       flash[:notice] = 'Invalid email, please try again'
       redirect('/registrations/new')
     elsif User.email_in_use?(params[:email])

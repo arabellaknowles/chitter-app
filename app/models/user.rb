@@ -47,6 +47,10 @@ class User
     user.first ? true : false
   end
 
+  def self.username_and_email_in_use?(username:, email:)
+    (username_in_use?(username) && email_in_use?(email))
+  end
+
   private
 
   def self.password_encryption(password)

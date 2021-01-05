@@ -55,5 +55,15 @@ feature 'user can sign up' do
       )
       expect(page).to have_content('Username already in use, please use another one')
     end
+
+    scenario 'user fills in registration form with non-unique username and email' do
+      user_sign_up(
+        username: 'javascriptFanGirl', 
+        email: 'JSLover@gmail.com', 
+        full_name: 'Josephine Doe', 
+        password: 'Mice 4 life'
+      )
+      expect(page).to have_content('Username and email already in use, please use another one')
+    end
   end
 end
