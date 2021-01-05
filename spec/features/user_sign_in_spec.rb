@@ -11,11 +11,12 @@ feature 'signing in' do
   end
 
   scenario 'user signs in and sees welcome message' do
-
     fill_in 'username', with: 'javascriptFanGirl'
     fill_in 'password', with: 'ILoveDogs'
     click_on 'Sign in'
     expect(page).to have_content('Welcome, Jane')
+    expect(page).to_not have_button('Sign up')
+    expect(page).to_not have_button('Sign in')
   end
 
   scenario 'user signs in with invalid credentials and sees error message' do

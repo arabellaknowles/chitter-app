@@ -8,5 +8,7 @@ feature 'user can sign up' do
     fill_in 'password', with: 'Dogs 4 life'
     click_on 'Register'
     expect(page).to have_content('Successfully signed up')
+    expect(page).to_not have_button('Sign up')
+    expect(page).to_not have_button('Sign in')
   end
 end
