@@ -13,8 +13,7 @@ class User
 
   def self.create(username:, email:, full_name:, password:)
     connect_to_database
-    hash_password = password_encryption(password)
-    result = @connection.exec("INSERT INTO users (username, email, full_name, password) VALUES('#{username}', '#{email}', '#{full_name}', '#{hash_password}') RETURNING id, username, email, full_name, password")
+    result = @connection.exec("INSERT INTO users (username, email, full_name, password) VALUES('#{username}', '#{email}', '#{full_name}', '#{password_encryption(password)}') RETURNING id, username, email, full_name, password")
     User.new(
       id: result[0]['id'],
       username: result[0]['username'], 
@@ -37,14 +36,14 @@ class User
 
   def self.email_in_use?(email)
     connect_to_database
-    user = @connection.exec("SELECT * FROM users WHERE email='#{email}'")
-    user.first ? true : false
+    user = find_by_email(email: email)
+    user_found?(user)
   end
 
   def self.username_in_use?(username)
     connect_to_database
-    user = @connection.exec("SELECT * FROM users WHERE username='#{username}'")
-    user.first ? true : false
+    user = find_by_username(username: username)
+    user_found?(user)
   end
 
   def self.username_and_email_in_use?(username:, email:)
@@ -63,5 +62,17 @@ class User
     else
       @connection = PG.connect(dbname: 'chitter_users')
     end
+  end
+
+  def self.find_by_username(username:)
+    @connection.exec("SELECT * FROM users WHERE username='#{username}'")
+  end
+
+  def self.find_by_email(email:)
+    @connection.exec("SELECT * FROM users WHERE email='#{email}'")
+  end
+
+  def self.user_found?(user)
+    user.first ? true : false
   end
 end
