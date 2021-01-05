@@ -29,11 +29,18 @@ describe User do
     end
   end
 
-  describe '.valid_email?' do
+  describe '.invalid_email?' do
     it 'checks the email is valid' do
-      expect(User.valid_email?('JSLover@gmail.com')).to eq(true)
-      expect(User.valid_email?('JSLover@gmailcom')).to eq(false)
-      expect(User.valid_email?('JSLovergmail.com')).to eq(false)
+      expect(User.invalid_email?('JSLover@gmail.com')).to eq(false)
+      expect(User.invalid_email?('JSLover@gmailcom')).to eq(true)
+      expect(User.invalid_email?('JSLovergmail.com')).to eq(true)
+    end
+  end
+
+  describe '.email_in_use?' do
+    it 'checks if username is already in the database' do
+      expect(User.email_in_use?('JSLover@gmail.com')).to eq(true)
+      expect(User.email_in_use?('RubyLover@gmail.com')).to eq(false)
     end
   end
 end

@@ -31,8 +31,14 @@ class User
     user && (db_password == password) ? user.first : false
   end
 
-  def self.valid_email?(email)
-    ((email =~ VALID_EMAIL_REGEX) == 0) ? true : false
+  def self.invalid_email?(email)
+    !((email =~ VALID_EMAIL_REGEX) == 0)
+  end
+
+  def self.email_in_use?(email)
+    connect_to_database
+    user = @connection.exec("SELECT * FROM users WHERE email='#{email}'")
+    user.first ? true : false
   end
 
   private
