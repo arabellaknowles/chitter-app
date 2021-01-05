@@ -12,6 +12,7 @@ ENV['ENVIRONMENT'] = 'test'
 require 'capybara/rspec'
 require 'pg'
 require 'support/database_truncator.rb'
+require 'support/test_helpers.rb'
 require File.join(File.dirname(__FILE__), '..', 'app', 'app.rb')
 
 Capybara.app = Chitter
