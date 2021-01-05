@@ -7,6 +7,10 @@
     <input name='peep_text' type='text' placeholder='250 characters max'>
     <input type='submit' value='Post'>
   </form>
+  <form method='post' action='/sessions'>
+    <input type="hidden" name="_method" value="DELETE">
+    <input type='submit' value='Sign out'>
+  </form>
 <% else %>
   <form method='get' action='registrations/new'>
     <input type='submit' value='Sign up'>

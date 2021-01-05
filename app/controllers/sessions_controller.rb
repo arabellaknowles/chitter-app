@@ -14,4 +14,10 @@ class Chitter < Sinatra::Base
       redirect('/sessions/new')
     end
   end
+
+  delete '/sessions' do
+    session.delete(:current_user_id)
+    flash[:notice] = 'Successfully signed out, see you soon!'
+    redirect('/')
+  end
 end
