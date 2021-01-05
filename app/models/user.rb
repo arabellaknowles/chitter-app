@@ -25,9 +25,9 @@ class User
 
   def self.authenticate(username:, password:)
     connect_to_database
-    user = @connection.exec("SELECT * FROM users WHERE username='#{username}'")
-    db_password = Password.new(user.first['password'])
-    user && (db_password == password) ? user.first : false
+    user = find_by_username(username: username)
+    db_password = Password.new(user['password'])
+    user && (db_password == password) ? user : false
   end
 
   def self.invalid_email?(email)
@@ -36,12 +36,12 @@ class User
 
   def self.email_in_use?(email)
     connect_to_database
-    find_by_email(email: email)
+    !!find_by_email(email: email)
   end
 
   def self.username_in_use?(username)
     connect_to_database
-    find_by_username(username: username)
+    !!find_by_username(username: username)
   end
 
   def self.username_and_email_in_use?(username:, email:)
@@ -63,10 +63,10 @@ class User
   end
 
   def self.find_by_username(username:)
-    !!(@connection.exec("SELECT * FROM users WHERE username='#{username}'").first)
+    (@connection.exec("SELECT * FROM users WHERE username='#{username}'").first)
   end
 
   def self.find_by_email(email:)
-    !!(@connection.exec("SELECT * FROM users WHERE email='#{email}'").first)
+    (@connection.exec("SELECT * FROM users WHERE email='#{email}'").first)
   end
 end
