@@ -1,5 +1,85 @@
-# Chitter
-This is a twitter clone webapp.
+# Chitter #
+
+This social media webapp enables the user to sign up, sign in and post peeps that are linked to their account. The site is still under production in terms of styling, however, it is functional. Users can view other users peeps along with the name and the time the peep was posted. The peeps are listed in reverse chronological order to keep the users feed fresh. Signed in users can post a peep with up to 250 characters. 
+
+I used as minimal gems as possible to re-acquaint myself with ruby logic and database interactions. 
+
+### Set up:
+
+- Clone this repository
+- In your terminal run:
+``` 
+~ bundle
+```
+
+**Setting up your chitter manager database:**
+
+- In your terminal run:
+``` 
+~ psql postgres
+```
+- Create your database:
+```
+postgres=# CREATE DATABASE chitter_manager;
+```
+- Connect to database:
+```
+postgres=# \c chitter_manager;
+```
+- Create a peeps table by running the query in file 01_creating_peep_table.sql in the db/migrations directory
+- Add a time column to peep table by running the query in file 02_adding_time_column.sql in the db/migrations directory
+- Add a name column to peep table by running the query in file 04_adding_name_column.sql in the db/migrations directory
+- Add a username column to peep table by running the query in file 05_adding_username_column.sql in the db/migrations directory
+
+**Setting up your test chitter manager database:**
+
+- In your terminal run:
+``` 
+~ psql postgres
+```
+- Create your database:
+```
+postgres=# CREATE DATABASE chitter_manager_test;
+```
+- Connect to database:
+```
+postgres=# \c chitter_manager_test;
+```
+- Create a peeps table by running the query in file 01_create_peep_table.sql in the db/migrations directory
+- Add a time column to peep table by running the query in file 02_add_time_column.sql in the db/migrations directory
+- Add a user_id column to peep table by running the query in file 04_add_user_id_column_to_peep_table.sql in the db/migrations directory
+
+**Setting up your chitter account database:**
+
+- In your terminal run:
+``` 
+~ psql postgres
+```
+- Create your database:
+```
+postgres=# CREATE DATABASE chitter_users;
+```
+- Connect to database:
+```
+postgres=# \c chitter_users;
+```
+- Create an accounts table by running the query in file 03_create_users_table.sql in the db/migrations directory
+
+**Setting up your test chitter account database:**
+
+- In your terminal run:
+``` 
+~ psql postgres
+```
+- Create your database:
+```
+postgres=# CREATE DATABASE chitter_users_test;
+```
+- Connect to database:
+```
+postgres=# \c chitter_users_test;
+```
+- Create an accounts table by running the query in file 03_create_users_table.sql in the db/migrations directory
 
 ## Features
 ```
