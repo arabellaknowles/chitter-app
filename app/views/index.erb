@@ -1,10 +1,16 @@
+
+<head>
+  <title> Chitter </title>
+  <link type="text/css" rel="stylesheet" body="body "href="<%=url('/style.css')%>" />
+</head>
+
 <h1>Welcome to Chitter</h1>
 <%= flash[:notice] %>
 
 <% if session[:current_user_id] %>
-  <form method='post' action='/peeps'>
+  <form class='new_peep_form' method='post' action='/peeps'>
     <label>Make a peep:</label>
-    <input name='peep_text' type='text' placeholder='250 characters max'>
+    <input class='peep_form_text_field' name='peep_text' type='text' placeholder='250 characters max'>
     <input type='submit' value='Post'>
   </form>
   <form method='post' action='/sessions'>
@@ -13,19 +19,21 @@
   </form>
 <% else %>
   <form method='get' action='registrations/new'>
-    <input type='submit' value='Sign up'>
+    <input class='sign_up_button' type='submit' value='Sign up'>
   </form>
   <form method='get' action='sessions/new'>
-    <input type='submit' value='Sign in'>
+    <input class='sign_up_button' type='submit' value='Sign in'>
   </form>
 <% end %>
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li>
-      <%= peep.peep %>
-      <%= peep.created_at%>
-      <%= User.find_by_id(peep.user_id)['full_name'] %>
-    </li>
+    <div class='peep'>
+      <li >
+        <%= peep.peep %>
+        <%= peep.created_at%>
+        <%= User.find_by_id(peep.user_id)['full_name'] %>
+      </li>
+    </div>
   <% end %>
 </ul>
