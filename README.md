@@ -11,6 +11,12 @@ I used as minimal gems as possible to re-acquaint myself with ruby logic and dat
 ``` 
 ~ bundle
 ```
+- Set up databases (detailed below)
+- Run 
+```
+rackup
+```
+- Go to localhost:9292 in your browser.
 
 **Setting up your chitter manager database:**
 
@@ -118,7 +124,6 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 
 As a user
-
 In order to start a conversation as a maker I want to reply to a peep from another maker.
 ```
 
