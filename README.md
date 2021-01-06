@@ -32,10 +32,8 @@ postgres=# CREATE DATABASE chitter_app_manager;
 ```
 postgres=# \c chitter_app_manager;
 ```
-- Create a peeps table by running the query in file 01_creating_peep_table.sql in the db/migrations directory
-- Add a time column to peep table by running the query in file 02_adding_time_column.sql in the db/migrations directory
-- Add a name column to peep table by running the query in file 04_adding_name_column.sql in the db/migrations directory
-- Add a username column to peep table by running the query in file 05_adding_username_column.sql in the db/migrations directory
+- Create a users table by running the query in file 01_creating_users_table.sql in the db/migrations directory
+- Create a peeps table by running the query in file 02_creating_peep_table.sql in the db/migrations directory
 
 **Setting up your test chitter manager database:**
 
@@ -45,47 +43,14 @@ postgres=# \c chitter_app_manager;
 ```
 - Create your database:
 ```
-postgres=# CREATE DATABASE chitter__app_manager_test;
+postgres=# CREATE DATABASE chitter_app_manager_test;
 ```
 - Connect to database:
 ```
-postgres=# \c chitter__app_manager_test;
+postgres=# \c chitter_app_manager_test;
 ```
-- Create a peeps table by running the query in file 01_create_peep_table.sql in the db/migrations directory
-- Add a time column to peep table by running the query in file 02_add_time_column.sql in the db/migrations directory
-- Add a user_id column to peep table by running the query in file 04_add_user_id_column_to_peep_table.sql in the db/migrations directory
-
-**Setting up your chitter account database:**
-
-- In your terminal run:
-``` 
-~ psql postgres
-```
-- Create your database:
-```
-postgres=# CREATE DATABASE chitter_users;
-```
-- Connect to database:
-```
-postgres=# \c chitter_users;
-```
-- Create an accounts table by running the query in file 03_create_users_table.sql in the db/migrations directory
-
-**Setting up your test chitter account database:**
-
-- In your terminal run:
-``` 
-~ psql postgres
-```
-- Create your database:
-```
-postgres=# CREATE DATABASE chitter_users_test;
-```
-- Connect to database:
-```
-postgres=# \c chitter_users_test;
-```
-- Create an accounts table by running the query in file 03_create_users_table.sql in the db/migrations directory
+- Create a users table by running the query in file 01_creating_users_table.sql in the db/migrations directory
+- Create a peeps table by running the query in file 02_creating_peep_table.sql in the db/migrations directory
 
 ## Features
 ```

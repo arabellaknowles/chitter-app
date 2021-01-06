@@ -1,5 +1,11 @@
 describe Peep do
   before do
+    User.create(
+      username: 'javascriptFanGirl',
+      email: 'JSLover@gmail.com',
+      full_name: 'Jane Doe',
+      password: 'ILoveDogs'
+    )
     @time_now = Time.now.strftime("%k:%M")
     allow(Peep).to receive(:current_time).and_return(@time_now)
   end

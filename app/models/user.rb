@@ -65,9 +65,9 @@ class User
 
   def self.connect_to_database
     if ENV['ENVIRONMENT'] == 'test'
-      @connection = PG.connect(dbname: 'chitter_users_test')
+      @connection = PG.connect(dbname: 'chitter_app_manager_test')
     else
-      @connection = PG.connect(dbname: 'chitter_users')
+      @connection = PG.connect(dbname: 'chitter_app_manager')
     end
   end
 

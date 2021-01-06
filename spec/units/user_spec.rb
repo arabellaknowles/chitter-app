@@ -10,7 +10,7 @@ describe User do
   
   describe '.create' do
     it 'creates a new user' do
-      connection = PG.connect(dbname: 'chitter_users_test')
+      connection = PG.connect(dbname: 'chitter_app_manager_test')
       result = connection.query("SELECT * FROM users WHERE id = #{@user.id};")
       persisted_data = result.first
 
