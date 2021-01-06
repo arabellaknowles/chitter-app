@@ -20,11 +20,11 @@ I used as minimal gems as possible to re-acquaint myself with ruby logic and dat
 ```
 - Create your database:
 ```
-postgres=# CREATE DATABASE chitter_manager;
+postgres=# CREATE DATABASE chitter_app_manager;
 ```
 - Connect to database:
 ```
-postgres=# \c chitter_manager;
+postgres=# \c chitter_app_manager;
 ```
 - Create a peeps table by running the query in file 01_creating_peep_table.sql in the db/migrations directory
 - Add a time column to peep table by running the query in file 02_adding_time_column.sql in the db/migrations directory
@@ -39,11 +39,11 @@ postgres=# \c chitter_manager;
 ```
 - Create your database:
 ```
-postgres=# CREATE DATABASE chitter_manager_test;
+postgres=# CREATE DATABASE chitter__app_manager_test;
 ```
 - Connect to database:
 ```
-postgres=# \c chitter_manager_test;
+postgres=# \c chitter__app_manager_test;
 ```
 - Create a peeps table by running the query in file 01_create_peep_table.sql in the db/migrations directory
 - Add a time column to peep table by running the query in file 02_add_time_column.sql in the db/migrations directory
