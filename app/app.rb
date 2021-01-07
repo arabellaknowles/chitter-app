@@ -2,6 +2,8 @@ require 'sinatra/base'
 require 'pg'
 require 'bcrypt'
 
+require_relative 'models/database.rb'
+require_relative 'database_connection.rb'
 require_relative 'models/peep.rb'
 require_relative 'models/user.rb'
 

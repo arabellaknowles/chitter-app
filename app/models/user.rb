@@ -12,8 +12,7 @@ class User
   end
 
   def self.create(username:, email:, full_name:, password:)
-    connect_to_database
-    result = @connection.exec("INSERT INTO users (username, email, full_name, password) VALUES('#{username}', '#{email}', '#{full_name}', '#{password_encryption(password)}') RETURNING id, username, email, full_name, password")
+    result = Database.query("INSERT INTO users (username, email, full_name, password) VALUES('#{username}', '#{email}', '#{full_name}', '#{password_encryption(password)}') RETURNING id, username, email, full_name, password")
     User.new(
       id: result[0]['id'],
       username: result[0]['username'], 
@@ -24,12 +23,10 @@ class User
   end 
 
   def self.find_by_id(id)
-    connect_to_database
-    @connection.exec("SELECT * FROM users WHERE id='#{id}'").first
+    Database.query("SELECT * FROM users WHERE id='#{id}'").first
   end
 
   def self.authenticate(username:, password:)
-    connect_to_database
     user = find_by_username(username: username)
     if user
       db_password = Password.new(user['password'])
@@ -44,12 +41,10 @@ class User
   end
 
   def self.email_in_use?(email)
-    connect_to_database
     !!find_by_email(email: email)
   end
 
   def self.username_in_use?(username)
-    connect_to_database
     !!find_by_username(username: username)
   end
 
@@ -63,19 +58,11 @@ class User
     hash_password = Password.create(password)
   end
 
-  def self.connect_to_database
-    if ENV['ENVIRONMENT'] == 'test'
-      @connection = PG.connect(dbname: 'chitter_app_manager_test')
-    else
-      @connection = PG.connect(dbname: 'chitter_app_manager')
-    end
-  end
-
   def self.find_by_username(username:)
-    (@connection.exec("SELECT * FROM users WHERE username='#{username}'").first)
+    (Database.query("SELECT * FROM users WHERE username='#{username}'").first)
   end
 
   def self.find_by_email(email:)
-    (@connection.exec("SELECT * FROM users WHERE email='#{email}'").first)
+    (Database.query("SELECT * FROM users WHERE email='#{email}'").first)
   end
 end
