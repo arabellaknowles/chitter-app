@@ -4,12 +4,12 @@
 </head>
 
 <body>
-  <form method='post' action='/sessions'>
-    <label>Username:</label>
-    <input name='username'  type='username' placeholder='username'>
-    <label>Password:</label>
-    <input name='password' type='password' placeholder='password'>
-    <input type='submit' value='Sign in'>
+  <form class='form_container' method='post' action='/sessions'>
+    <label class='form_label'>Username:</label>
+    <input class='form_text_field' name='username'  type='username' placeholder='username'>
+    <label class='form_label'>Password:</label>
+    <input class='form_text_field' name='password' type='password' placeholder='password'>
+    <input class='form_button' type='submit' value='Sign in'>
   </form>
 
   <%= flash[:notice] %>
