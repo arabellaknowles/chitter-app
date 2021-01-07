@@ -8,7 +8,7 @@ feature 'posting a peep' do
     fill_in 'password', with: 'Dogs 4 life'
     click_on 'Register'
     fill_in 'peep_text', with: 'Day 44 of lockdown, still no loo roll'
-    click_on 'Post'
+    click_on 'Peep'
     expect(page).to have_content('Welcome to Chitter')
     expect(page).to have_content('Successfully posted')
   end
