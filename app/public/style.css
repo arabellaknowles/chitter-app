@@ -1,5 +1,6 @@
 h1 {
   color: white;
+  padding: 10px;
 }
 
 body {
@@ -22,6 +23,23 @@ body {
   font-size: 100%;
 }
 
+.sign_in_button {
+  background-color: white;
+  border: none;
+  color: #2bc4ff;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
 .sign_up_button {
   background-color: white;
   border: none;
@@ -34,6 +52,9 @@ body {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 20px;
+  position: absolute;
+  top: 10px;
+  right: 140px;
 }
 
 .peep {  
