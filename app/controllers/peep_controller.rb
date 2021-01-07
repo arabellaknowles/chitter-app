@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   put '/peeps/:id' do
-    Database.query("UPDATE peeps SET peep=#{params[:peep_text]} WHERE id=#{params[:peep_id]}")
+    Database.query("UPDATE peeps SET peep='#{params[:peep_text]}' WHERE id=#{params[:peep_id]}")
     redirect('/')
   end
 end
