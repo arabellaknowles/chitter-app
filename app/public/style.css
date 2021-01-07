@@ -8,9 +8,22 @@ body {
   background-color: #2bc4ff;
 }
 
-.new_peep_form {
-  height: 36px; 
+.form_container {
+  margin: auto;
   border: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  background-color: snow;
+  border-radius: 20px;
+  padding: 2px;
+}
+
+.new_peep_form {
+  padding: 10px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,7 +33,30 @@ body {
 .peep_form_text_field {
   padding: 20px;
   width: 80%;
+  height: 70px;
   font-size: 100%;
+  border-style: groove;
+  border-radius: 20px;
+  background-color: whitesmoke;
+}
+
+.peep_form_label {
+  font-size: 20px;
+}
+
+.peep_form_button {
+  background-color: lightgray;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  width: 80%;
 }
 
 .sign_in_button {
@@ -62,7 +98,8 @@ body {
   width: 60%;
   padding: 15px;
   background-color: white;
-  border-style: ridge; 
+  border-style: none; 
+  border-radius: 10px;
 }
 
 .list {
@@ -72,4 +109,5 @@ body {
 .container {
   padding: 5px;
 }
+
 

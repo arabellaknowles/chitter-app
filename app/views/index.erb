@@ -8,14 +8,16 @@
 <%= flash[:notice] %>
 
 <% if session[:current_user_id] %>
-  <form class='new_peep_form' method='post' action='/peeps'>
-    <label>Make a peep:</label>
-    <input class='peep_form_text_field' name='peep_text' type='text' placeholder='250 characters max'>
-    <input type='submit' value='Post'>
-  </form>
+  <div class='form_container'>
+    <form class='new_peep_form' method='post' action='/peeps'>
+      <label class='peep_form_label'>What's happening?</label><br>
+      <input class='peep_form_text_field' name='peep_text' type='text' placeholder='250 characters max'><br>
+      <input type='submit' class='peep_form_button' value='Peep'>
+    </form>
+  </div>
   <form method='post' action='/sessions'>
     <input type="hidden" name="_method" value="DELETE">
-    <input type='submit' value='Sign out'>
+    <input type='submit' class='sign_in_button' value='Sign out'>
   </form>
 <% else %>
   <form method='get' action='registrations/new'>
