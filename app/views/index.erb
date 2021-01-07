@@ -42,8 +42,7 @@
               <input type='hidden' name='peep_id' value=<%="#{peep.id}"%>>
               <input type='submit' class='delete_button' value='Delete'>
             </form>
-            <form method='post' action="/peeps/<%= peep.id %>">
-              <input type='hidden' name='_method' value='put'>
+            <form method='get' action="/peeps/<%= peep.id %>/edit">
               <input type='hidden' name='peep_id' value=<%="#{peep.id}"%>>
               <input type='submit' class='delete_button' value='Edit'>
             </form>

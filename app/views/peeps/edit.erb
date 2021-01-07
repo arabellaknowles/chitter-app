@@ -1,0 +1,14 @@
+<head>
+  <title> Chitter </title>
+  <link type="text/css" rel="stylesheet" body="body "href="<%=url('/style.css')%>" />
+</head>
+
+<body>
+  <div class='form_container'>
+      <form class='new_peep_form' method='post' action='/peeps'>
+        <label class='form_label'>Edit your peep</label><br>
+        <input class='form_text_field' name='peep_text' type='text' placeholder='250 characters max'><br>
+        <input type='submit' class='form_button' value='Update'>
+      </form>
+  </div>
+</body>

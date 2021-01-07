@@ -9,6 +9,7 @@ feature 'editing peeps' do
       password: 'Dogs 4 life'
     )
     post_peep
-    expect(page).to have_button 'Edit'
+    click_on 'Edit'
+    expect(page).to have_content('Edit your peep')
   end
 end
