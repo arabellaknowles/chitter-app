@@ -25,6 +25,11 @@ class Peep
     peeps.reverse
   end
 
+  def self.delete(peep_id)
+    connect_to_database
+    @connection.exec("DELETE FROM peeps WHERE id=#{peep_id}")
+  end
+
   private
 
   def self.connect_to_database

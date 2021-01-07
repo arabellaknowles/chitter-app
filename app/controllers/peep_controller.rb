@@ -4,4 +4,9 @@ class Chitter < Sinatra::Base
     flash[:notice] = 'Successfully posted'
     redirect('/')
   end
+
+  delete '/peeps' do
+    Peep.delete(params[:peep_id])
+    redirect('/')
+  end
 end

@@ -1,5 +1,5 @@
 feature 'deleting peeps' do
-  scenario 'signed up user can see delete button on their posts' do
+  scenario 'signed up user can their post' do
     visit('/')
     click_on('Sign up')
     user_sign_up(
@@ -9,7 +9,9 @@ feature 'deleting peeps' do
       password: 'Dogs 4 life'
     )
     post_peep
-    expect(page).to have_button('Delete')
+    click_on 'Delete'
+    expect(page).to have_content('Welcome to Chitter')
+    expect(page).to_not have_content('Day 44 of lockdown, still no loo roll')
   end
 
   scenario 'user cannot see delete button if post does not belong to them' do
