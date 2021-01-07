@@ -6,8 +6,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/:id/edit' do
-    @peep_text = params[:peep_text]
-    @peep_id = params[:peep_id]
     erb :'/peeps/edit'
   end
 

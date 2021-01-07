@@ -5,11 +5,11 @@
 
 <body>
   <div class='form_container'>
-      <form class='new_peep_form' method='post' action='/peeps/<%= @peep_id %>'>
+      <form class='new_peep_form' method='post' action='/peeps/<%= params[:peep_id] %>'>
         <input type='hidden' name='_method' value='put'>
-        <input type='hidden' name='peep_id' value='<%= @peep_id %>'>
+        <input type='hidden' name='peep_id' value='<%= params[:peep_id] %>'>
         <label class='form_label'>Edit your peep</label><br>
-        <input class='form_text_field' name='peep_text' type='text' placeholder='<%= @peep_text %>'><br>
+        <input class='form_text_field' name='peep_text' type='text' placeholder='<%= params[:peep_text] %>'><br>
         <input type='submit' class='form_button' value='Update'>
       </form>
   </div>
