@@ -103,6 +103,19 @@ body {
   background-color: white;
   border-style: none; 
   border-radius: 10px;
+  position: relative;
+}
+
+.edit_button {
+  background-color: white;
+  border: solid lightgray;
+  border-width: 0.5px;
+  color: #2bc4ff;
+  border-radius: 5px;
+  position: absolute;
+  width: 53px;
+  top: 10;
+  right: 15;
 }
 
 .list {

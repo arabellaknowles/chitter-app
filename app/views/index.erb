@@ -45,8 +45,9 @@
             <form method='get' action="/peeps/<%= peep.id %>/edit">
               <input type='hidden' name='peep_id' value=<%="#{peep.id}"%>>
               <input type='hidden' name='peep_text' value=<%="#{peep.peep}"%>>
-              <input type='submit' class='delete_button' value='Edit'>
+              <input type='submit' class='edit_button' value='Edit'>
             </form>
+            </div>
           <% end %>
         </li>
       </div>
