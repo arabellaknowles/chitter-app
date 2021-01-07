@@ -1,13 +1,20 @@
-<form method='post' action='/registrations'>
-  <label>Username:</label>
-  <input name='username'  type='username' placeholder='username'>
-  <label>Email:</label>
-  <input name='email' type='email' placeholder='email'>
-  <label>Full name:</label>
-  <input name='full_name' type='text' placeholder='text'>
-  <label>Password:</label>
-  <input name='password' type='password' placeholder='password'>
-  <input type='submit' value='Register'>
-</form>
+<head>
+  <title> Chitter </title>
+  <link type="text/css" rel="stylesheet" body="body "href="<%=url('/style.css')%>" />
+</head>
 
-<%= flash[:notice] %>
+<body>
+  <form method='post' action='/registrations'>
+    <label>Username:</label>
+    <input name='username'  type='username' placeholder='username'>
+    <label>Email:</label>
+    <input name='email' type='email' placeholder='email'>
+    <label>Full name:</label>
+    <input name='full_name' type='text' placeholder='text'>
+    <label>Password:</label>
+    <input name='password' type='password' placeholder='password'>
+    <input type='submit' value='Register'>
+  </form>
+
+  <%= flash[:notice] %>
+</body>

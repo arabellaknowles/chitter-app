@@ -1,9 +1,16 @@
-<form method='post' action='/sessions'>
-  <label>Username:</label>
-  <input name='username'  type='username' placeholder='username'>
-  <label>Password:</label>
-  <input name='password' type='password' placeholder='password'>
-  <input type='submit' value='Sign in'>
-</form>
+<head>
+  <title> Chitter </title>
+  <link type="text/css" rel="stylesheet" body="body "href="<%=url('/style.css')%>" />
+</head>
 
-<%= flash[:notice] %>
+<body>
+  <form method='post' action='/sessions'>
+    <label>Username:</label>
+    <input name='username'  type='username' placeholder='username'>
+    <label>Password:</label>
+    <input name='password' type='password' placeholder='password'>
+    <input type='submit' value='Sign in'>
+  </form>
+
+  <%= flash[:notice] %>
+</body>
