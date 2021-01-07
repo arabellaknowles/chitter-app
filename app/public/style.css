@@ -37,13 +37,18 @@ body {
 }
 
 .peep {  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
+  width: 60%;
+  padding: 15px;
   background-color: white;
-  border-style: ridge;  
-  padding: 25px;
-  width: 70%;
+  border-style: ridge; 
+}
+
+.list {
+  list-style-type: none;
+}
+
+.container {
+  padding: 5px;
 }
 
