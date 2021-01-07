@@ -1,8 +1,8 @@
 # Chitter #
 
-This social media webapp enables the user to sign up, sign in and post peeps that are linked to their account. The site is still under production in terms of styling, however, it is functional. Users can view other users peeps along with the name and the time the peep was posted. The peeps are listed in reverse chronological order to keep the users feed fresh. Signed in users can post a peep with up to 250 characters. 
+This social media webapp enables the user to sign up, sign in and post peeps that are linked to their account. Non-signed in users can view other users peeps along with the name and the time the peep was posted. Signed up users are able to edit and delete their own peeps. The peeps are listed in reverse chronological order to keep the users feed fresh. The site is still under production in terms of styling, however, it is functional.
 
-I used as minimal gems as possible to re-acquaint myself with ruby logic and database interactions. 
+I used as minimal gems as possible to re-acquaint myself with ruby logic and psql database interactions. 
 
 ### Set up:
 
@@ -51,6 +51,19 @@ postgres=# \c chitter_app_manager_test;
 ```
 - Create a users table by running the query in file 01_creating_users_table.sql in the db/migrations directory
 - Create a peeps table by running the query in file 02_creating_peep_table.sql in the db/migrations directory
+
+## Technologies
+**Development:**
+- Ruby
+- Bcrypt
+- Sinatra & Sinatra flash
+- PG
+
+**Testing:**
+- RSpec
+- Capybara
+- Simplecov & simplecov console
+- Rubocop
 
 ## Features
 ```
