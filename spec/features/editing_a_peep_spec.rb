@@ -10,6 +10,6 @@ feature 'editing peeps' do
     )
     post_peep
     click_on 'Edit'
-    expect(page).to have_content('Edit your peep')
+    expect(page).to have_content('Day 44 of lockdown, still no loo roll')
   end
 end
