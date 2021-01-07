@@ -29,8 +29,8 @@ class User
   def self.authenticate(username:, password:)
     user = find_by_username(username: username)
     if user
-      db_password = Password.new(user['password'])
-      user && (db_password == password) ? user : false
+      db_password = password_hash(user['password'])
+      password_matches?(db_password: db_password, user_input_password: password) ? user : false
     else
       return false
     end
@@ -56,6 +56,14 @@ class User
 
   def self.password_encryption(password)
     hash_password = Password.create(password)
+  end
+
+  def self.password_hash(password)
+    db_password = Password.new(password)
+  end
+
+  def self.password_matches?(db_password:, user_input_password:)
+    (db_password == user_input_password)
   end
 
   def self.find_by_username(username:)
