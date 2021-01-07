@@ -113,4 +113,11 @@ body {
   padding: 5px;
 }
 
-
+.delete_button {
+  background-color: white;
+  border: solid lightgray;
+  border-width: 0.5px;
+  color: #2bc4ff;
+  border-radius: 5px;
+  float: right;
+}
