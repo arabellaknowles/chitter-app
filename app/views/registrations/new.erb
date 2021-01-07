@@ -4,16 +4,17 @@
 </head>
 
 <body>
-  <form method='post' action='/registrations'>
-    <label>Username:</label>
-    <input name='username'  type='username' placeholder='username'>
-    <label>Email:</label>
-    <input name='email' type='email' placeholder='email'>
-    <label>Full name:</label>
-    <input name='full_name' type='text' placeholder='text'>
-    <label>Password:</label>
-    <input name='password' type='password' placeholder='password'>
-    <input type='submit' value='Register'>
+  <form class='form_container' method='post' action='/registrations'>
+    <h2>Create an account</h2>
+    <label class='form_label'>Username:</label>
+    <input class='form_text_field' name='username'  type='username' placeholder='username'>
+    <label class='form_label'>Email:</label>
+    <input class='form_text_field' name='email' type='email' placeholder='email'>
+    <label class='form_label'>Full name:</label>
+    <input class='form_text_field' name='full_name' type='text' placeholder='full name'>
+    <label class='form_label'>Password:</label>
+    <input class='form_text_field' name='password' type='password' placeholder='password'>
+    <input class='form_button' type='submit' value='Register'>
   </form>
 
   <%= flash[:notice] %>

@@ -33,7 +33,7 @@ body {
   align-items: center;
 }
 
-.peep_form_text_field {
+.form_text_field {
   padding: 20px;
   width: 80%;
   height: 70px;
@@ -43,11 +43,11 @@ body {
   background-color: whitesmoke;
 }
 
-.peep_form_label {
+.form_label {
   font-size: 20px;
 }
 
-.peep_form_button {
+.form_button {
   background-color: lightgray;
   border: none;
   color: black;
