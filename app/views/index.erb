@@ -38,9 +38,14 @@
           <%= User.find_by_id(peep.user_id)['full_name'] %>
           <% if (session[:current_user_id] == peep.user_id) %>
             <form method='post' action="/peeps/<%= peep.id %>">
-              <input type='hidden' name='_method' value='DELETE'>
+              <input type='hidden' name='_method' value='delete'>
               <input type='hidden' name='peep_id' value=<%="#{peep.id}"%>>
               <input type='submit' class='delete_button' value='Delete'>
+            </form>
+            <form method='post' action="/peeps/<%= peep.id %>">
+              <input type='hidden' name='_method' value='put'>
+              <input type='hidden' name='peep_id' value=<%="#{peep.id}"%>>
+              <input type='submit' class='delete_button' value='Edit'>
             </form>
           <% end %>
         </li>
