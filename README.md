@@ -9,12 +9,12 @@ I used as minimal gems as possible to re-acquaint myself with ruby logic and psq
 - Clone this repository
 - In your terminal run:
 ``` 
-~ bundle
+$ bundle
 ```
 - Set up databases (detailed below)
 - Run 
 ```
-rackup
+$ rackup
 ```
 - Go to localhost:9292 in your browser.
 
@@ -22,7 +22,7 @@ rackup
 
 - In your terminal run:
 ``` 
-~ psql postgres
+$ psql postgres
 ```
 - Create your database:
 ```
