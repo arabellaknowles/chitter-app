@@ -39,7 +39,7 @@ postgres=# \c chitter_app_manager;
 
 - In your terminal run:
 ``` 
-~ psql postgres
+$ psql postgres
 ```
 - Create your database:
 ```
